@@ -1,12 +1,15 @@
 const container = document.getElementById("container")
-const blocks = document.getElementsByClassName("grid-item")
-function makeRows(rows, cols) {
-  container.style.setProperty("--grid-rows", rows)
-  container.style.setProperty("--grid-cols", cols)
-  for (c = 0; c < rows * cols; c++) {
-    let cell = document.createElement("div")
-    container.appendChild(cell).className = "grid-item"
+
+function makeDivs(cols, rows) {
+  for (let i = 0; i < cols * rows; i++) {
+    let div = document.createElement("div")
+    container.style.cssText = `grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);`
+    div.className = "box"
+    container.appendChild(div)
   }
 }
+makeDivs(16, 16)
 
-makeRows(16, 16)
+container.addEventListener("mouseover", (event) => {
+  event.target.style.cssText = "background-color: red;"
+})
