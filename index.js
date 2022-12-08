@@ -3,10 +3,13 @@ const container = document.getElementById("container")
 const changeSizeBtn = document.getElementById("change-size-btn")
 const box = document.querySelectorAll(".box")
 const resetBtn = document.getElementById("reset-btn")
+const changeColorBtn = document.getElementById("select-color-btn")
 
 const DEFAULT_COLOR = "#191b1c"
 let CURRENT_COLOR = "#14e34b"
 let lastGrid = [16, 16]
+
+let picker = new Picker(changeColorBtn)
 
 //initial grid
 makeGrids(16, 16)
@@ -45,3 +48,7 @@ changeSizeBtn.addEventListener("click", () => {
   lastGrid = newSizeArray
   makeGrids(newSizeArray[0], newSizeArray[1])
 })
+
+picker.onChange = function (color) {
+  CURRENT_COLOR = color.rgbaString
+}
