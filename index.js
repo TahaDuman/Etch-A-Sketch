@@ -4,12 +4,14 @@ const changeSizeBtn = document.getElementById("change-size-btn")
 const box = document.querySelectorAll(".box")
 const resetBtn = document.getElementById("reset-btn")
 
-let CURRENT_COLOR = "#14e34b"
 const DEFAULT_COLOR = "#191b1c"
+let CURRENT_COLOR = "#14e34b"
 let lastGrid = [16, 16]
-makeDivs(16, 16)
 
-function makeDivs(cols, rows) {
+//initial grid
+makeGrids(16, 16)
+
+function makeGrids(cols, rows) {
   // clearing grid so old grids don't add to each other
   clearGrid()
   for (let i = 0; i < cols * rows; i++) {
@@ -32,14 +34,14 @@ container.addEventListener("mouseover", (event) => {
 
 /* reset btn */
 resetBtn.addEventListener("click", () => {
-  container.innerHTML = ""
-  makeDivs(lastGrid[0], lastGrid[1])
+  makeGrids(lastGrid[0], lastGrid[1])
   container.style.backgroundColor = `${DEFAULT_COLOR}`
 })
-/* change grid size */
+
+/* change grid size with button*/
 changeSizeBtn.addEventListener("click", () => {
-  let newSize = prompt("Size: (type like = 5x5)")
-  newSizeArray = newSize.split("x")
+  let newSize = prompt("Size: (type like = 5)")
+  newSizeArray = [newSize, newSize]
   lastGrid = newSizeArray
-  makeDivs(newSizeArray[0], newSizeArray[1])
+  makeGrids(newSizeArray[0], newSizeArray[1])
 })
