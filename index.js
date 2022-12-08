@@ -4,6 +4,7 @@ const changeSizeBtn = document.getElementById("change-size-btn")
 const box = document.querySelectorAll(".box")
 const resetBtn = document.getElementById("reset-btn")
 const changeColorBtn = document.getElementById("select-color-btn")
+const eraserBtn = document.getElementById("eraser-btn")
 
 const DEFAULT_COLOR = "#191b1c"
 let CURRENT_COLOR = "#14e34b"
@@ -49,6 +50,14 @@ changeSizeBtn.addEventListener("click", () => {
   makeGrids(newSizeArray[0], newSizeArray[1])
 })
 
+eraserBtn.addEventListener("click", () => {
+  CURRENT_COLOR = DEFAULT_COLOR
+})
+
+// make them shorter
 picker.onChange = function (color) {
+  CURRENT_COLOR = color.rgbaString
+}
+picker.onDone = function (color) {
   CURRENT_COLOR = color.rgbaString
 }
