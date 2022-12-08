@@ -10,7 +10,7 @@ let CURRENT_COLOR = "#14e34b"
 let lastGrid = [16, 16]
 
 let picker = new Picker(changeColorBtn)
-
+picker.setColor(CURRENT_COLOR)
 //initial grid
 makeGrids(16, 16)
 

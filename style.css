@@ -27,8 +27,20 @@ main {
 
 #change-size-btn,
 #reset-btn {
-  height: 40px;
   padding: 10px;
   margin: 10px auto;
   display: block;
+}
+
+.color-picker-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+}
+#select-color-btn,
+#eraser-btn {
+  padding: 10px;
+  margin-bottom: 30px;
 }
