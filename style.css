@@ -1,10 +1,31 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #2a2a2a;
+}
 #container {
+  background-color: #191b1c;
   display: grid;
+  width: 640px;
+  height: 640px;
+  margin: 0 auto;
 }
+
 .box {
-  padding: 20px;
-  border: 2px red solid;
+  padding: 1px;
+  border: 0px red solid;
 }
-.black {
-  background-color: black;
+
+#change-size-btn,
+#reset-btn {
+  height: 40px;
+  padding: 10px;
+  margin: 15px auto;
+  display: block;
 }
