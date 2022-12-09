@@ -5,6 +5,7 @@ const box = document.querySelectorAll(".box")
 const resetBtn = document.getElementById("reset-btn")
 const changeColorBtn = document.getElementById("select-color-btn")
 const eraserBtn = document.getElementById("eraser-btn")
+const currentColorIndicator = document.getElementById("current-color-indicator")
 
 const DEFAULT_COLOR = "#191b1c"
 let CURRENT_COLOR = "#14e34b"
@@ -40,6 +41,10 @@ container.addEventListener("mouseover", (event) => {
 resetBtn.addEventListener("click", () => {
   makeGrids(lastGrid[0], lastGrid[1])
   container.style.backgroundColor = `${DEFAULT_COLOR}`
+  if (CURRENT_COLOR == DEFAULT_COLOR) {
+    CURRENT_COLOR = "#14e34b"
+    showCurrentColor()
+  }
 })
 
 /* change grid size with button*/
@@ -52,12 +57,19 @@ changeSizeBtn.addEventListener("click", () => {
 
 eraserBtn.addEventListener("click", () => {
   CURRENT_COLOR = DEFAULT_COLOR
+  currentColorIndicator.style.backgroundColor = `${CURRENT_COLOR}`
 })
 
-// make them shorter
+// try to make them shorter
 picker.onChange = function (color) {
   CURRENT_COLOR = color.rgbaString
+  currentColorIndicator.style.backgroundColor = `${CURRENT_COLOR}`
 }
 picker.onDone = function (color) {
   CURRENT_COLOR = color.rgbaString
+  currentColorIndicator.style.backgroundColor = `${CURRENT_COLOR}`
 }
+function showCurrentColor() {
+  currentColorIndicator.style.backgroundColor = `${CURRENT_COLOR}`
+}
+currentColorIndicator.style.backgroundColor = `${CURRENT_COLOR}`
