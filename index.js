@@ -15,6 +15,7 @@ let picker = new Picker(changeColorBtn)
 picker.setColor(CURRENT_COLOR)
 //initial grid
 makeGrids(16, 16)
+showCurrentColor()
 
 function makeGrids(cols, rows) {
   // clearing grid so old grids don't add to each other
@@ -40,7 +41,8 @@ container.addEventListener("mouseover", (event) => {
 /* reset btn */
 resetBtn.addEventListener("click", () => {
   makeGrids(lastGrid[0], lastGrid[1])
-  container.style.backgroundColor = `${DEFAULT_COLOR}`
+  showCurrentColor()
+  // if eraser is on and clicked reset btn then change the eraser to inital color
   if (CURRENT_COLOR == DEFAULT_COLOR) {
     CURRENT_COLOR = "#14e34b"
     showCurrentColor()
@@ -57,19 +59,19 @@ changeSizeBtn.addEventListener("click", () => {
 
 eraserBtn.addEventListener("click", () => {
   CURRENT_COLOR = DEFAULT_COLOR
-  currentColorIndicator.style.backgroundColor = `${CURRENT_COLOR}`
+  showCurrentColor()
 })
+
+function showCurrentColor() {
+  currentColorIndicator.style.backgroundColor = `${CURRENT_COLOR}`
+}
 
 // try to make them shorter
 picker.onChange = function (color) {
   CURRENT_COLOR = color.rgbaString
-  currentColorIndicator.style.backgroundColor = `${CURRENT_COLOR}`
+  showCurrentColor()
 }
 picker.onDone = function (color) {
   CURRENT_COLOR = color.rgbaString
-  currentColorIndicator.style.backgroundColor = `${CURRENT_COLOR}`
+  showCurrentColor()
 }
-function showCurrentColor() {
-  currentColorIndicator.style.backgroundColor = `${CURRENT_COLOR}`
-}
-currentColorIndicator.style.backgroundColor = `${CURRENT_COLOR}`
