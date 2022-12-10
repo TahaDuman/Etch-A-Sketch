@@ -51,10 +51,14 @@ resetBtn.addEventListener("click", () => {
 
 /* change grid size with button*/
 changeSizeBtn.addEventListener("click", () => {
-  let newSize = prompt("Size: (type like = 5)")
-  newSizeArray = [newSize, newSize]
-  lastGrid = newSizeArray
-  makeGrids(newSizeArray[0], newSizeArray[1])
+  let newSize = parseInt(prompt("Size: (type like = 5)"))
+  if (newSize <= 100) {
+    newSizeArray = [newSize, newSize]
+    lastGrid = newSizeArray
+    makeGrids(newSizeArray[0], newSizeArray[1])
+  } else if (isNaN(newSize)) {
+    prompt("It has to be number")
+  } else prompt("It has to be under 100")
 })
 
 eraserBtn.addEventListener("click", () => {
