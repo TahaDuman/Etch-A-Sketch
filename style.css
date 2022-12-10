@@ -10,14 +10,15 @@
 
 body {
   background-color: #2a2a2a;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
 }
 main {
+  margin-top: 5%;
   display: flex;
 }
 button {
   border-radius: 5px;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
 }
 #container {
   background-color: #191b1c;
@@ -34,7 +35,6 @@ button {
 
 #change-size-btn {
   padding: 10px;
-  margin: 10px auto;
   display: block;
 }
 
@@ -43,10 +43,11 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 5px;
+  margin-left: 100px;
 }
 #select-color-btn,
-#eraser-btn {
+#eraser-btn,
+#reset-btn {
   padding: 10px;
   margin-bottom: 30px;
 }
@@ -56,10 +57,8 @@ button {
   margin-bottom: 10px;
   background: white;
   border: 1px solid white;
+  border-radius: 50px;
 }
 #current-color-indicator-text {
   color: white;
-}
-#reset-btn {
-  padding: 10px;
 }
